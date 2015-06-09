@@ -1,32 +1,29 @@
 <div layout="vertical" layout-fill>
 
-  <md-content>
+  <md-content layout-fill>
     <header ng-include="'app/components/navbar/navbar.html'"></header>
 
-    <section class="jumbotron">
-      <h1>'Allo, 'Allo!</h1>
-      <p class="lead">
-        <img src="assets/images/yeoman.png" alt="I'm Yeoman"><br>
-        Always a pleasure scaffolding your apps.
-      </p>
-      <p><a class="btn" ng-href="#">Splendid!</a></p>
-    </section>
+    <!-- <div ui-view="MainContent"></div> -->
 
-    <div class="techs" layout-align="center">
-      <md-card ng-repeat="awesomeThing in awesomeThings | orderBy:'rank'">
-        <div class="thumbnail">
-          <img class="pull-right" ng-src="assets/images/{{awesomeThing.logo}}" alt="{{awesomeThing.title}}">
-          <div class="caption">
-            <h3>{{awesomeThing.title}}</h3>
-            <p>{{awesomeThing.description}}</p>
-            <p><a ng-href="{{awesomeThing.url}}">{{awesomeThing.url}}</a></p>
-          </div>
-        </div>
-      </md-card>
-    </div>
+    <md-list ng-view="home" ng-init="getArticle()">
+      <md-list-item class="md-3-line" ng-repeat="item in articles">
+        <img ng-src="{{ item.user.profile_image_url }}" class="md-avatar" />
+        <!-- <a class="md-list-item-text" href="{{ item.url }}"> -->
+        <a class="md-list-item-text" href="{{ item.url }}" target="_blank">
+          <h3>{{ item.title }}</h3>
+          <h4>{{ item.created_at | date:'yyyy/MM/dd HH:mm' }}</h4>
+          <!-- <p>{{ item.tags }}</p> -->
+          <ul class="md-list-item-tags clearfix">
+            <li ng-repeat="tag in item.tags">{{ tag.name }}</li>
+          </ul>
+        </a>
+      </md-list-item>
+    </md-list>
+
+
     <footer>
       <md-toolbar layout="row" layout-align="center center">
-        <p>With ♥ from <a href="https://twitter.com/Swiip">@Swiip</a></p>
+        <p>OHAKO.inc</p>
       </md-toolbar>
     </footer>
   </md-content>

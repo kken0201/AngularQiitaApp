@@ -1,4 +1,4 @@
-<md-toolbar layout="row" layout-align="center center" ng-controller="NavbarCtrl">
+<!-- <md-toolbar layout="row" layout-align="center center" ng-controller="NavbarCtrl">
 
   <md-button href="https://github.com/Swiip/generator-gulp-angular">Gulp Angular</md-button>
 
@@ -10,4 +10,16 @@
 
   <md-button href="#">Current date: {{ date | date:'yyyy-MM-dd' }}</md-button>
 
-</md-toolbar>
+</md-toolbar> -->
+
+<md-toolbar layout-fill>
+   <div class="md-toolbar-tools" ng-controller="NavbarCtrl">
+     <md-button class="md-icon-button" aria-label="Settings">
+       <ng-md-icon icon="menu" style="fill: white"></ng-md-icon>
+     </md-button>
+      <div class="md-ripple-container"></div></button>
+     <h2>
+       <span>AngularQiitaApps</span>
+     </h2>
+   </div>
+ </md-toolbar>
